@@ -1,5 +1,5 @@
 #usr/bin/python3.9
-mport re, csv, mailbox
+import re, csv, mailbox
 from pathlib import Path
 from tkinter import filedialog
 
