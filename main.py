@@ -1,8 +1,7 @@
 #usr/bin/python3.9
-import re
-import csv
-import mailbox
+mport re, csv, mailbox
 from pathlib import Path
+from tkinter import filedialog
 
 class csv_from_mbox(object):
 
@@ -42,9 +41,9 @@ class csv_from_mbox(object):
 
 def main():
     print("\nWelcome to csv from mbox!")
-    input_path = input("\nPaste the path to the mbox file:\n")
-    output_path = input("\nOutput directory for extracted emails:\n")
-    cfm = csv_from_mbox(input_path, output_path)
+    mbox_file_path = filedialog.askopenfilename(title = "Select MBOX", filetypes=(("MBOX Files", "*.mbox"),))
+    output_path = filedialog.askdirectory()
+    cfm = csv_from_mbox(mbox_file_path, output_path)
     print("\nLoading the 'from' fields of your emails from mbox...\n")
     from_fields = cfm.get_from_headers()
     print("\nSaving email addresses into csv.\n")
